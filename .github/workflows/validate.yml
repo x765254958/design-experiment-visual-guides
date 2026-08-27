@@ -1,0 +1,19 @@
+name: validate-skill
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install PyYAML
+      - run: python scripts/validate_skill_package.py .
+      - run: python scripts/validate_experiment_spec.py assets/experiment-spec.example.json
+      - run: python scripts/build_visual_prompt.py assets/experiment-spec.example.json --out /tmp/visual-prompts
+

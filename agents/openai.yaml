@@ -1,0 +1,5 @@
+interface:
+  display_name: "实验方案与操作图设计器"
+  short_description: "根据研究目的制定可审核实验方案并生成逐日操作图与新手手册"
+  default_prompt: "Use $design-experiment-visual-guides to turn my research goal and laboratory conditions into a reviewed protocol, beginner manual, and daily operation visuals."
+

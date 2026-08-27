@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "project": {
+    "name": "example-l929-screening",
+    "question": "Does the material reduce L929 metabolic activity after 24 h?",
+    "phase": "pilot",
+    "deliverables": ["protocol", "beginner-manual", "visual-pack"]
+  },
+  "governance": {
+    "setting": "approved cell culture laboratory",
+    "training_confirmed": false,
+    "ethics_or_biosafety_id": "",
+    "local_sop_required": true
+  },
+  "materials": [
+    {
+      "id": "MZ",
+      "name": "loaded particles",
+      "batch": "confirm",
+      "pairing_system": "system-1",
+      "status": "confirmed"
+    }
+  ],
+  "dose_basis": {
+    "basis": "total particle mass",
+    "concentrations": [0, 15, 30, 50, 100],
+    "unit": "ug/mL",
+    "status": "provisional"
+  },
+  "groups": [
+    {"id": "C", "role": "negative-control", "treatment": "complete medium"},
+    {"id": "M15", "role": "treatment", "treatment": "loaded particles", "concentration": 15, "unit": "ug/mL"},
+    {"id": "BM15", "role": "material-background", "treatment": "loaded particles without cells", "concentration": 15, "unit": "ug/mL"}
+  ],
+  "assays": [
+    {
+      "name": "CCK-8",
+      "primary_endpoint": "background-corrected relative metabolic activity",
+      "technical_replicates": 3,
+      "independent_repeats": 3,
+      "status": "provisional"
+    }
+  ],
+  "schedule": [
+    {
+      "day": "D0",
+      "objective": "prepare and seed cells",
+      "tasks": ["inspect cells", "detach", "count", "prepare cell suspension", "seed plate"],
+      "key_parameters": ["5000 cells/well", "100 uL/well"],
+      "warnings": ["confirm cell condition", "avoid bubbles"]
+    },
+    {
+      "day": "D1",
+      "objective": "prepare material and treat cells",
+      "tasks": ["inspect attachment", "prepare stock", "prepare working solutions", "replace medium", "treat"],
+      "key_parameters": ["record actual stock concentration", "100 uL/well"],
+      "warnings": ["mix settling particles consistently"]
+    }
+  ],
+  "quality_controls": ["normal control acceptable", "material background measured", "raw values retained"],
+  "stop_conditions": ["contamination", "sample identity unresolved", "control failure"],
+  "unknowns": ["material sterilization method", "confirmed sample batch"]
+}
