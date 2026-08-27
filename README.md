@@ -1,5 +1,7 @@
 # Design Experiment Visual Guides
 
+[简体中文](README.md) | [English](README.en.md)
+
 [![Validate skill](https://github.com/x765254958/design-experiment-visual-guides/actions/workflows/validate.yml/badge.svg)](https://github.com/x765254958/design-experiment-visual-guides/actions/workflows/validate.yml)
 
 一个用于“实验方案设计 → 萌新操作手册 → 逐日实验操作图”的 Codex Skill。
@@ -35,6 +37,23 @@
         ↓
 跨文件一致性检查
 ```
+
+## 输出示例
+
+下面的图片展示了该 Skill 希望生成的两类互补资料：精确的孔板布局图，以及按实验日拆分的操作指导图。图片中的参数仅对应示例项目，正式实验应从已确认的 `experiment_spec.json` 重新生成。
+
+### D0：铺板布局与操作准备
+
+<p align="center">
+  <img src="assets/style-reference/cck8-D0-layout.png" alt="L929 CCK-8 D0 铺板图" width="49%">
+  <img src="assets/style-reference/cck8-D0-operation.png" alt="L929 CCK-8 D0 操作图" width="49%">
+</p>
+
+### D1：材料处理操作
+
+<p align="center">
+  <img src="assets/style-reference/cck8-D1-operation.png" alt="L929 CCK-8 D1 操作图" width="82%">
+</p>
 
 ## 输出模式
 
@@ -153,4 +172,3 @@ python -m py_compile scripts/*.py
 ## 说明
 
 本项目的目标是让实验方案、操作手册和实验图片共享同一套参数来源，从而提高可执行性与可审查性。预期结果图只能用于说明计划获得的数据形式，不应被表述为真实实验结果。
-
