@@ -16,7 +16,9 @@ def fail(message: str) -> None:
 
 
 def main() -> int:
-    root = Path(sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent)
+    root = Path(
+        sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parent.parent
+    ).resolve()
     skill_file = root / "SKILL.md"
     if not skill_file.exists():
         fail("SKILL.md is missing")
@@ -61,4 +63,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
